@@ -36,7 +36,7 @@ To perform certain maintenance tasks (like modifying data), it is often necessar
 #### Monitoring Replication
 
 1. **Getting the Status**:
-   The `rs.status()` command provides comprehensive information about the state of each member in the replica set. This includes their roles (e.g., primary, secondary), replication lag, and more 【5†source】.
+   The `rs.status()` command provides comprehensive information about the state of each member in the replica set. This includes their roles (e.g., primary, secondary), replication lag, and more.
 
 2. **Visualizing the Replication Graph**:
    Running `rs.status()` on secondaries can show the member that a node is syncing from (via the `syncingTo` field). This helps to identify the replication hierarchy within the set, useful for understanding the flow of data .
@@ -45,7 +45,7 @@ To perform certain maintenance tasks (like modifying data), it is often necessar
    MongoDB's default replication behavior allows secondaries to replicate from other secondaries if necessary, creating a chain. While this minimizes load on the primary, it can increase replication lag. The `replSetSyncFrom()` command can be used to specify a different member to sync from if needed  .
 
 4. **Calculating Lag**:
-   Replication lag is the delay between when an operation is written on the primary and when it is applied on a secondary. This can be monitored using the timestamps provided by `rs.status()` 【5†source】.
+   Replication lag is the delay between when an operation is written on the primary and when it is applied on a secondary. This can be monitored using the timestamps provided by `rs.status()`.
 
 5. **Resizing the Oplog**:
    The oplog size can affect replication. A larger oplog provides a greater window for secondaries to catch up if they fall behind. This can be configured to ensure better replication efficiency during heavy load periods .
